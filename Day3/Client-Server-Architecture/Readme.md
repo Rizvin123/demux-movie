@@ -8,5 +8,4 @@ Source academind
 - For more detailed explanation, kindly check out [Blog](https://academind.com/tutorials/how-the-web-works/)
 
 
-### Static and Dynamic Pages
 
