@@ -1,0 +1,17 @@
+<%- include("./partials/header")%>
+<style> .card{margin: auto;}</style>
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%=data.Title%></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Ratings</h6>
+      <p class="card-text">
+          <% data.Ratings.forEach(function(rating){%>
+            Source: <%= rating.Source%> <br>
+            Value: <%= rating.Value%> <br>
+            <br>
+            <%}) %>
+      </p>
+      <a href="/result/<%=data["imdbID"]%>" class="card-link"><%=data.Title%></a>
+    </div>
+  </div>
+<%- include("./partials/footer")%>

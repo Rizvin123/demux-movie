@@ -42,6 +42,23 @@ app.get("/result/:id", (req, res)=>{
         }
     });
 });
+app.get("/result/:id/ratings", (req, res)=>{
+    const url = "http://www.omdbapi.com/?apikey=cfd672ef&i=" + req.params.id;
+    request(url, function(error, response, body) {
+        if (!error && response.statusCode == 200) {
+            const data = JSON.parse(body)
+            //console.log(data);
+            if(data.Response==='False'){
+                res.send("Movie Not Found");
+            }else{
+                //res.send(data);
+                res.render("Ratings", {data: data});    
+            }
+        }else{
+            res.send('Error');
+        }
+    });
+});
 app.get("*", (req, res)=>{
     res.send("Some Error");
 });
