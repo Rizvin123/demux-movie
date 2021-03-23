@@ -10,7 +10,7 @@ app.get("/", (req, res)=>{
 });
 app.get("/result", (req, res)=>{
     const query = req.query.search;
-    const url = "http://www.omdbapi.com/?apikey=cfd672ef&s=" + query;
+    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&s=`+ query;
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body)
@@ -26,7 +26,7 @@ app.get("/result", (req, res)=>{
     });
 });
 app.get("/result/:id", (req, res)=>{
-    const url = "http://www.omdbapi.com/?apikey=cfd672ef&i=" + req.params.id;
+    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=` + req.params.id;
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body)
@@ -43,7 +43,7 @@ app.get("/result/:id", (req, res)=>{
     });
 });
 app.get("/result/:id/ratings", (req, res)=>{
-    const url = "http://www.omdbapi.com/?apikey=cfd672ef&i=" + req.params.id;
+    const url = `http://www.omdbapi.com/?apikey=${process.env.API_KEY}&i=` + req.params.id;
     request(url, function(error, response, body) {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body)
